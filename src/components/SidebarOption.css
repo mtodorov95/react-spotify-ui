@@ -1,14 +1,16 @@
 .sidebarOption {
   display: flex;
   align-items: center;
-  color: gray;
+  color: darkgray;
   height: 40px;
   cursor: pointer;
   transition: 150ms color ease-in;
+  border-radius: 25px;
 }
 
 .sidebarOption:hover {
-  color: #fff;
+  background-color: lightgray;
+  color: #000;
 }
 
 .sidebarOption__icon {
@@ -17,7 +19,8 @@
 }
 
 .sidebarOption > p {
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   margin-left: 10px;
   font-size: 14px;
 }

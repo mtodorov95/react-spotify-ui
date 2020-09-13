@@ -17,8 +17,14 @@ function Body({ spotify }) {
         <img src={shownPlaylist?.images[0].url} alt="album cover" />
         <div className="body__infoText">
           <strong>PLAYLIST</strong>
-          <h2>{shownPlaylist?.name}</h2>
-          <p>{shownPlaylist?.description}</p>
+          <h2>
+            {shownPlaylist?.name ? shownPlaylist?.name : "Unnamed Playlist"}
+          </h2>
+          <p>
+            {shownPlaylist?.description
+              ? shownPlaylist?.description
+              : "No description"}
+          </p>
         </div>
       </div>
       <div className="body__songs">

@@ -4,8 +4,8 @@
   position: fixed;
   bottom: 0;
   height: 65px;
-  width: 97%;
-  background-color: #282828;
+  width: 100%;
+  background-color: rgba(128, 4, 92, 1);
   padding: 20px;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .footer__right * .MuiSlider-root {
-  color: #1ed15e;
+  color: rgba(245, 107, 19, 1);
 }
 
 .footer__center {
@@ -47,7 +47,7 @@
 }
 
 .footer__green {
-  color: #1ed15e;
+  color: rgba(245, 107, 19, 1);
 }
 
 .footer__songInfo > h4 {

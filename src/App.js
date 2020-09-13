@@ -28,14 +28,11 @@ function App() {
         });
       });
       spotify.getUserPlaylists().then((playlists) => {
-        let id = playlists.items[1].id
-          ? playlists.items[1].id
-          : playlists.items[0].id;
         dispatch({
           type: "SET_PLAYLISTS",
           playlists,
         });
-        spotify.getPlaylist(id).then((playlist) => {
+        spotify.getPlaylist(playlists.items[0].id).then((playlist) => {
           dispatch({
             type: "SET_SHOWN_PLAYLIST",
             playlist,

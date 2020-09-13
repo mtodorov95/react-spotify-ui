@@ -14,7 +14,7 @@ function Sidebar() {
       <img
         className="sidebar__logo"
         alt="spotify logo"
-        src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg"
+        src="https://logo-logos.com/wp-content/uploads/2016/10/Spotify_logo_text.png"
       />
       <SidebarOption title="Home" Icon={HomeIcon} />
       <SidebarOption title="Search" Icon={SearchIcon} />
