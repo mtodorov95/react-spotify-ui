@@ -8,17 +8,17 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import SongRow from "./SongRow";
 
 function Body({ spotify }) {
-  const [{ discoverWeekly }, dispatch] = useStateValue();
+  const [{ shownPlaylist }, dispatch] = useStateValue();
 
   return (
     <div className="body">
       <Header spotify={spotify} />
       <div className="body__info">
-        <img src={discoverWeekly?.images[0].url} alt="album cover" />
+        <img src={shownPlaylist?.images[0].url} alt="album cover" />
         <div className="body__infoText">
           <strong>PLAYLIST</strong>
-          <h2>Discover Weekly</h2>
-          <p>{discoverWeekly?.description}</p>
+          <h2>{shownPlaylist?.name}</h2>
+          <p>{shownPlaylist?.description}</p>
         </div>
       </div>
       <div className="body__songs">
@@ -27,7 +27,7 @@ function Body({ spotify }) {
           <FavoriteIcon />
           <MoreHorizIcon />
         </div>
-        {discoverWeekly?.tracks.items.map((item) => (
+        {shownPlaylist?.tracks.items.map((item) => (
           <SongRow track={item.track} />
         ))}
         <div className="body__empty"></div>

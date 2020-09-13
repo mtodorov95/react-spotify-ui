@@ -9,7 +9,7 @@ import { useStateValue } from "./StateProvider";
 const spotify = new SpotifyWebApi();
 
 function App() {
-  const [{ token }, dispatch] = useStateValue();
+  const [{ token, shownPlaylistId }, dispatch] = useStateValue();
 
   useEffect(() => {
     const hash = getTokenFromResponse();
@@ -28,15 +28,18 @@ function App() {
         });
       });
       spotify.getUserPlaylists().then((playlists) => {
+        let id = playlists.items[1].id
+          ? playlists.items[1].id
+          : playlists.items[0].id;
         dispatch({
           type: "SET_PLAYLISTS",
           playlists,
         });
-      });
-      spotify.getPlaylist("37i9dQZEVXcP1NDLnu8Nkv").then((response) => {
-        dispatch({
-          type: "SET_DISCOVER_WEEKLY",
-          discoverWeekly: response,
+        spotify.getPlaylist(id).then((playlist) => {
+          dispatch({
+            type: "SET_SHOWN_PLAYLIST",
+            playlist,
+          });
         });
       });
     }
