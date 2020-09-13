@@ -1,11 +1,37 @@
 import React from "react";
+import { useStateValue } from "../StateProvider";
 import "./Body.css";
 import Header from "./Header";
+import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import SongRow from "./SongRow";
 
 function Body({ spotify }) {
+  const [{ discoverWeekly }, dispatch] = useStateValue();
+
   return (
     <div className="body">
       <Header spotify={spotify} />
+      <div className="body__info">
+        <img src={discoverWeekly?.images[0].url} alt="album cover" />
+        <div className="body__infoText">
+          <strong>PLAYLIST</strong>
+          <h2>Discover Weekly</h2>
+          <p>{discoverWeekly?.description}</p>
+        </div>
+      </div>
+      <div className="body__songs">
+        <div className="body__icons">
+          <PlayCircleFilledIcon className="body__shuffle" fontSize="large" />
+          <FavoriteIcon />
+          <MoreHorizIcon />
+        </div>
+        {discoverWeekly?.tracks.items.map((item) => (
+          <SongRow track={item.track} />
+        ))}
+        <div className="body__empty"></div>
+      </div>
     </div>
   );
 }
